@@ -1,0 +1,7 @@
+*.sln
+.vs/
+_MiscLinks/
+bin/
+bin-int/
+*.vcxproj
+*.user
