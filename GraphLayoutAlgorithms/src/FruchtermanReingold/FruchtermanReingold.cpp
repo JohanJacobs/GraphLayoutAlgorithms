@@ -15,6 +15,52 @@ namespace Layouts
 		m_Edge[from_vertex_name] = too_vertex_name;
 	}
 
+	void Step(int iterations = 50)
+	{
+		// Pseudo code for the algorithm
+		/*
+			area := W * L; {W and L are width and length of the frame}
+			G := (V,E); {the vertices are assigned random initial positions}
+			k := Sqrt ( area |V|);
+			function Fa(Z) = (x*x) / k;
+			function Fr(Z) = (k*k) / z;
+
+			for i := 1 to iterations do 
+				
+				{ calculate repulsive forces }
+				for v in V do
+					{each vertex has two vectors: .pos and .disp}
+					v.disp := 0;
+					for u in V do 
+						if u != v then
+							{Vector between teh two positions of the two vertices }
+							Delta = v.pos - y.pos
+							v.disp = v.disp + (delta / |delta|)*Fr(|delta|) { |delta| is magnitude of the vector }
+						endif 
+					end for 
+				
+				{ calculate attractive foreces }
+				for e in E do 
+					{each edge is an ordered pair of vertices v and u}
+					delta = e.v.pos - e.u.pos
+					e.v.disp = e.v.disp - (delta / |delta|) * Fa(|delta|)
+					e.y.disp = e.u.disp + (delta / |delta|) * Fa(|delta|)
+				end for 
+				
+				{ limit maximum displacement to the temprature t and prevent from being ouside the frame }
+				for v in V do 
+					v.pos = v.pos + (v.displ/ |v.disp|) * min (v.disp, t)l
+					v.pos.x = min(W/2, max (-W/2, v.pos.x))
+					v.pos.y = min (L/2, max(-L/2, v.pos.y))
+				End for 
+
+				{ reduce the temprature }
+				cool(t)
+			end for 
+		*/
+
+	}
+
 	void FruchtermanReingold::PrintGraphData() const
 	{
 		PrintVetexData();

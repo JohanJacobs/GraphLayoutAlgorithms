@@ -5,3 +5,6 @@ bin/
 bin-int/
 *.vcxproj
 *.user
+.vscode
+Makefile
+
