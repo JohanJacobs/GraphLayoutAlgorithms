@@ -20,3 +20,4 @@ workspace "GraphLayoutAlgorithms"
     IncludeDir["GraphLayoutAlgorithms"] = "%{wks.location}/GraphLayoutAlgorithms/src"
 
     include "Sandbox"
+    include "GraphLayoutAlgorithms"

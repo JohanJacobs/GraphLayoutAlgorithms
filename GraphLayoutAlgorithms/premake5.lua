@@ -1,13 +1,12 @@
-project "Sandbox"
-    kind "ConsoleApp"
+project "GraphLayoutAlgorithms"
+    kind "StaticLib"
     language "C++"
     cppdialect "C++17"
-    staticruntime "off"
 
-    targetdir(TargetDirectory)
+    targetdir (TargetDirectory)
     objdir(ObjectDirectory)
 
-    files 
+    files
     {
         "src/**.h",
         "src/**.cpp"
@@ -16,18 +15,14 @@ project "Sandbox"
     includedirs
     {
         "src",
-        "%{IncludeDir.GraphLayoutAlgorithms}"
     }
-    links
-    {
-        "GraphLayoutAlgorithms"
-    }
+
     filter "configurations:Debug"
         defines "DEBUG"
         runtime "Debug"
         symbols "on"
-
+    
     filter "configurations:Release"
         defines "RELEASE"
         runtime "Release"
-        optimize "on"
+        optimize "on"	
