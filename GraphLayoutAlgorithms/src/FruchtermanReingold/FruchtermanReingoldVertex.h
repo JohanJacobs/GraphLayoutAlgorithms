@@ -13,8 +13,8 @@ namespace Layouts
     class FruchtermanReingoldVertex
     {
     public:
-        FruchtermanReingoldVertex(const std::string& name)
-        :m_Name{name}
+        FruchtermanReingoldVertex(const std::string& name,const Vector2& position = Vector2(0.5f,0.5f))
+        :m_Name{name},m_Pos(position)
         {
 
         }
