@@ -28,6 +28,6 @@ project "Sandbox"
         symbols "on"
 
     filter "configurations:Release"
-        defines "RELEASE"
+        defines "NDEBUG"
         runtime "Release"
         optimize "on"

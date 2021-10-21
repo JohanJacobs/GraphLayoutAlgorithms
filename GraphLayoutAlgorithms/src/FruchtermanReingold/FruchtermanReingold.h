@@ -2,6 +2,8 @@
 #include <vector>
 #include <unordered_map>
 
+#include "FruchtermanReingoldVertex.h"
+
 namespace Layouts
 {
 	/*
@@ -31,7 +33,10 @@ namespace Layouts
 		void CreateVertex(const std::string& vertex_name);
 		void CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name);
 
-		void Step(int iterations = 50);
+		const std::vector<FruchtermanReingoldVertex>& GetVertex() const;
+		const std::unordered_map<std::string,std::string>& GetEdge() const;
+
+		void Step(uint32_t iterations = 50);
 
 		void PrintGraphData() const ;
 
@@ -40,8 +45,13 @@ namespace Layouts
 	private:
 		void PrintVetexData() const;
 		void PrintEdgeData() const;
+
+		FruchtermanReingoldVertex& GetVertexData(const std::string& vertex_name);
 	private:
-		std::vector<std::string> m_Vertex;
+		std::vector<FruchtermanReingoldVertex> m_Vertex;
 		std::unordered_map<std::string, std::string> m_Edge;
+
+		float m_Width;
+		float m_Height;
 	};
 }
