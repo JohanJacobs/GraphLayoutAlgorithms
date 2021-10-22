@@ -2,12 +2,13 @@
 #include <string>
 #include <vector>
 
+#include "Graph/IGraph.h"
 #include "Base/Vector2.h"
 #include "FruchtermanReingold/FruchtermanReingoldVertex.h"
 
 namespace Graphs
 {
-	class Graph
+	class Graph : public IGraph
 	{
 	public:
 		void CreateVertex(const std::string& vertex_name);

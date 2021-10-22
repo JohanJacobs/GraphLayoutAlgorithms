@@ -10,7 +10,7 @@
 
 namespace Layouts
 {
-	FruchtermanReingold::FruchtermanReingold(Graphs::Graph& graph)
+	FruchtermanReingold::FruchtermanReingold(Graphs::IGraph& graph)
 	:m_Width{3.0f}, m_Height{3.0f},m_Graph{graph}
 	{
 
@@ -105,7 +105,7 @@ namespace Layouts
 		}		
 	}
 
-	void FruchtermanReingold::SetGraph(Graphs::Graph& graph)
+	void FruchtermanReingold::SetGraph(Graphs::IGraph& graph)
 	{
 		m_Graph = graph;
 	}

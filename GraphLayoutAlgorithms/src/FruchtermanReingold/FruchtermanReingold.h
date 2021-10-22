@@ -3,7 +3,7 @@
 #include <unordered_map>
 
 #include "FruchtermanReingoldVertex.h"
-#include "Graph/Graph.h"
+#include "Graph/IGraph.h"
 #include "Layout/Layout.h"
 
 namespace Layouts
@@ -33,9 +33,9 @@ namespace Layouts
 	{
 	public:
 		void Step(uint32_t iterations = 50) override;
-		void SetGraph(Graphs::Graph& graph) override;
+		void SetGraph(Graphs::IGraph& graph) override;
 
-		FruchtermanReingold(Graphs::Graph& graph);
+		FruchtermanReingold(Graphs::IGraph& graph);
 		~FruchtermanReingold();
 
 	private:
@@ -43,7 +43,7 @@ namespace Layouts
 
 
 	private:
-		Graphs::Graph& m_Graph;
+		Graphs::IGraph& m_Graph;
 		float m_Width;
 		float m_Height;
 	};

@@ -1,5 +1,6 @@
 #pragma once
-#include "Graph/Graph.h"
+#include <stdint.h>
+#include "Graph/IGraph.h"
 namespace Layout
 {	
 	/*
@@ -8,7 +9,7 @@ namespace Layout
 	class ILayout
 	{
 	public:
-		virtual void SetGraph(Graphs::Graph& graph) = 0;
+		virtual void SetGraph(Graphs::IGraph& graph) = 0;
 		virtual void Step(uint32_t iterations = 50) = 0;						
 		virtual ~ILayout()
 		{	}
