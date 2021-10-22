@@ -105,7 +105,12 @@ namespace Layouts
 		}		
 	}
 
-	const FruchtermanReingoldVertex& FruchtermanReingold::GetVertexData(const std::string& vertex_name)	
+	void FruchtermanReingold::SetGraph(Graphs::Graph& graph)
+	{
+		m_Graph = graph;
+	}
+
+	const FruchtermanReingoldVertex& FruchtermanReingold::GetVertexData(const std::string& vertex_name)
 	{
 		auto result = std::find_if(std::begin(m_Graph.GetVertices()),std::end(m_Graph.GetVertices()), [&](const FruchtermanReingoldVertex& v){ return v.GetName() == vertex_name;});
 

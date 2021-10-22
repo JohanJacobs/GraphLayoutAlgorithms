@@ -4,6 +4,7 @@
 
 #include "FruchtermanReingoldVertex.h"
 #include "Graph/Graph.h"
+#include "Layout/Layout.h"
 
 namespace Layouts
 {
@@ -28,10 +29,11 @@ namespace Layouts
 		- Straight		
 	*/
 
-	class FruchtermanReingold
+	class FruchtermanReingold : public Layout::ILayout
 	{
 	public:
-		void Step(uint32_t iterations = 50);
+		void Step(uint32_t iterations = 50) override;
+		void SetGraph(Graphs::Graph& graph) override;
 
 		FruchtermanReingold(Graphs::Graph& graph);
 		~FruchtermanReingold();

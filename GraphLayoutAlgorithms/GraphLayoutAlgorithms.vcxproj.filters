@@ -27,6 +27,7 @@
     <ClInclude Include="src\Graph\Graph.h">
       <Filter>Graph</Filter>
     </ClInclude>
+    <ClInclude Include="src\Layout\Layout.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\FruchtermanReingold\FruchtermanReingold.cpp">
@@ -38,5 +39,6 @@
     <ClCompile Include="src\Graph\Graph.cpp">
       <Filter>Graph</Filter>
     </ClCompile>
+    <ClCompile Include="src\Layout\Layout.cpp" />
   </ItemGroup>
 </Project>
