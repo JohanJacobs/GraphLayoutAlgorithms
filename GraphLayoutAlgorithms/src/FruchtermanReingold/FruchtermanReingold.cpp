@@ -37,21 +37,18 @@ namespace Layouts
 	}
 
 	void FruchtermanReingold::Step(uint32_t iterations)
-	{		
-		// pseudo-code
-		//area := W * L; {W and L are width and length of the frame} 
+	{
 		float area = m_Width * m_Height;
-		float k = std::sqrt(area) / m_Vertex.size();
+		float k = std::sqrt(area / m_Vertex.size());
 		float t = 10.0f * m_Vertex.size(); // temprature
-
-
+		
 		for (uint32_t iteration=0; iteration < iterations; iteration++)
 		{
 			//{ calculate repulsive forces }
 			for (auto& vertex : m_Vertex)
 			{
 				vertex.SetDisplacement(0.0f, 0.0f);
-
+	
 				for (auto& other_vertex : m_Vertex)
 				{
 					if (other_vertex.GetName() == vertex.GetName())

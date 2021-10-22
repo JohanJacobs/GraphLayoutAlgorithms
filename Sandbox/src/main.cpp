@@ -36,9 +36,9 @@ void testFruchtermanReingold()
 
 	fr.Step(50);
 
-	std::cout << "Node1 pos: " << ((std::round(fr.GetVertex()[0].GetPosition().x()*10000) == -10.0f && std::round(fr.GetVertex()[0].GetPosition().y()*10000) == -5892.0f )?"Pass":"FAIL") << "\n";
-	std::cout << "Node2 pos: " << ((std::round(fr.GetVertex()[1].GetPosition().x()*10000) == 2155.0f && std::round(fr.GetVertex()[1].GetPosition().y()*10000) == -7492.0f )?"Pass":"FAIL") << "\n";
-	std::cout << "Node3 pos: " << ((std::round(fr.GetVertex()[2].GetPosition().x()*10000) == -10.0f && std::round(fr.GetVertex()[2].GetPosition().y()*10000) == -5892.f )?"Pass":"FAIL") << "\n";
+	std::cout << "Node1 pos: " << ((std::round(fr.GetVertex()[0].GetPosition().x()*10000) == 15000.0f && std::round(fr.GetVertex()[0].GetPosition().y()*10000) == -1014.0f )?"Pass":"FAIL") << "\n";
+	std::cout << "Node2 pos: " << ((std::round(fr.GetVertex()[1].GetPosition().x()*10000) == 11781.0f && std::round(fr.GetVertex()[1].GetPosition().y()*10000) == -11041.0f )?"Pass":"FAIL") << "\n";
+	std::cout << "Node3 pos: " << ((std::round(fr.GetVertex()[2].GetPosition().x()*10000) == 5156.0f && std::round(fr.GetVertex()[2].GetPosition().y()*10000) == -15000.0f )?"Pass":"FAIL") << "\n";
 
 	fr.PrintGraphData();
 
