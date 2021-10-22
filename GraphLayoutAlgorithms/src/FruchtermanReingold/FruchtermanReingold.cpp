@@ -37,15 +37,15 @@ namespace Layouts
 			//{ calculate repulsive forces }
 			for (auto& vertex : m_Graph.GetVertices())
 			{
-				displacement[vertex.GetName()].Set(0.0f, 0.0f);
+				displacement[vertex->GetName()].Set(0.0f, 0.0f);
 	
 				for (auto& other_vertex : m_Graph.GetVertices())
 				{
-					if (other_vertex.GetName() == vertex.GetName())
+					if (other_vertex->GetName() == vertex->GetName())
 						continue;
 					
 					// Vector between the two positions of the two vertices 
-					auto distance_vector = vertex.GetPosition() - other_vertex.GetPosition();
+					auto distance_vector = vertex->GetPosition() - other_vertex->GetPosition();
 					float distance_vector_magnitude = distance_vector.Magnitude();
 					auto distance_normalized = Vector2::Normalize(distance_vector);
 
@@ -53,8 +53,8 @@ namespace Layouts
 
 					float Fr = ((k*k) / ((distance_vector_magnitude == 0.0f)?1.0f:distance_vector_magnitude));
 
-					auto new_displacement = displacement[vertex.GetName()] + distance_normalized * Fr;
-					displacement[vertex.GetName()] = new_displacement; //displacement[vertex.GetName()].set(new_displacement);
+					auto new_displacement = displacement[vertex->GetName()] + distance_normalized * Fr;
+					displacement[vertex->GetName()] = new_displacement; //displacement[vertex.GetName()].set(new_displacement);
 				}
 			}
 
@@ -64,7 +64,7 @@ namespace Layouts
 				auto& from_vertex_data = GetVertexData(from_vertex_name);
 				auto& too_vertex_data = GetVertexData(too_vertex_name);
 
-				auto distance_vector = from_vertex_data.GetPosition() - too_vertex_data.GetPosition();
+				auto distance_vector = from_vertex_data->GetPosition() - too_vertex_data->GetPosition();
 				auto distance_vector_magnitude = distance_vector.Magnitude();
 				auto distnace_vector_normalized = Vector2::Normalize(distance_vector);
 
@@ -81,15 +81,15 @@ namespace Layouts
 			//{ limit maximum displacement to the temprature t and prevent from being ouside the frame }
 			for (auto& vertex : m_Graph.GetVertices())
 			{
-				auto displacement_normalized = Vector2::Normalize(displacement[vertex.GetName()]);
-				float displacement_magnitude = displacement[vertex.GetName()].Magnitude();
+				auto displacement_normalized = Vector2::Normalize(displacement[vertex->GetName()]);
+				float displacement_magnitude = displacement[vertex->GetName()].Magnitude();
 
-				auto new_position = vertex.GetPosition() + (displacement_normalized * std::min(displacement_magnitude, t));
+				auto new_position = vertex->GetPosition() + (displacement_normalized * std::min(displacement_magnitude, t));
 				
 				float new_x = std::min(half_width, std::max(-half_width, new_position.x()));
 				float new_y = std::min(half_height, std::max(-half_height, new_position.y()));
 				
-				vertex.SetPosition(new_x, new_y);
+				vertex->SetPosition(new_x, new_y);
 				
 			}
 
@@ -110,9 +110,9 @@ namespace Layouts
 		m_Graph = graph;
 	}
 
-	const FruchtermanReingoldVertex& FruchtermanReingold::GetVertexData(const std::string& vertex_name)
+	const std::shared_ptr<Vertex::IVertex>& FruchtermanReingold::GetVertexData(const std::string& vertex_name)
 	{
-		auto result = std::find_if(std::begin(m_Graph.GetVertices()),std::end(m_Graph.GetVertices()), [&](const FruchtermanReingoldVertex& v){ return v.GetName() == vertex_name;});
+		auto result = std::find_if(std::begin(m_Graph.GetVertices()),std::end(m_Graph.GetVertices()), [&](const std::shared_ptr<Vertex::IVertex>& v){ return v->GetName() == vertex_name;});
 
 		assert(result != std::end(m_Graph.GetVertices()));
 

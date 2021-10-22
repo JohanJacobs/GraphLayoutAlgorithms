@@ -2,18 +2,22 @@
 
 #include "Graph.h"
 #include "base/RandomValues.h"
+#include "Vertex/StandardVertex.h"
+
 
 namespace Graphs
 {
 	
 	void Graph::CreateVertex(const std::string& vertex_name)
 	{
+
 		CreateVertex(vertex_name, Vector2(RandomNumbers::GetFloat(), RandomNumbers::GetFloat()));
 	}
 
 	void Graph::CreateVertex(const std::string& vertex_name, const Vector2& vertex_position)
-	{
-		m_Vertex.emplace_back(vertex_name, vertex_position);
+	{		
+		auto new_vertex = std::make_shared<Vertex::StandardVertex>(vertex_name, vertex_position);
+		m_Vertex.emplace_back(new_vertex);
 	}
 
 	void Graph::CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name)
@@ -33,7 +37,7 @@ namespace Graphs
 
 		for (const auto& vertex : m_Vertex)
 		{
-			std::cout << vertex.GetName() << " - " << vertex.GetPosition().x() << "/" << vertex.GetPosition().y() << "\n";
+			std::cout << vertex->GetName() << " - " << vertex->GetPosition().x() << "/" << vertex->GetPosition().y() << "\n";
 		}
 
 		std::cout << "---- Vertex End----\n\n";
@@ -50,5 +54,4 @@ namespace Graphs
 
 		std::cout << "---- Edges End----\n\n";
 	}
-
 }

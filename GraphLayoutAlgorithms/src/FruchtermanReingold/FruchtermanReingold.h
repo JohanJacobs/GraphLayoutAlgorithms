@@ -2,7 +2,7 @@
 #include <vector>
 #include <unordered_map>
 
-#include "FruchtermanReingoldVertex.h"
+#include "Vertex/StandardVertex.h"
 #include "Graph/IGraph.h"
 #include "Layout/Layout.h"
 
@@ -39,7 +39,7 @@ namespace Layouts
 		~FruchtermanReingold();
 
 	private:
-		const FruchtermanReingoldVertex& GetVertexData(const std::string& vertex_name);
+		const std::shared_ptr<Vertex::IVertex>& GetVertexData(const std::string& vertex_name);
 
 
 	private:

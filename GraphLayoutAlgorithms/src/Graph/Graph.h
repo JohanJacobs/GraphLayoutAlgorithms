@@ -3,8 +3,9 @@
 #include <vector>
 
 #include "Graph/IGraph.h"
+#include "Vertex/IVertex.h"
 #include "Base/Vector2.h"
-#include "FruchtermanReingold/FruchtermanReingoldVertex.h"
+#include "Vertex/IVertex.h"
 
 namespace Graphs
 {
@@ -13,8 +14,8 @@ namespace Graphs
 	public:
 		void CreateVertex(const std::string& vertex_name);
 		void CreateVertex(const std::string& vertex_name, const Vector2& vertex_position);
-		const std::vector<Layouts::FruchtermanReingoldVertex>& GetVertices() const { return m_Vertex; }
-		std::vector<Layouts::FruchtermanReingoldVertex>& GetVertices() { return m_Vertex; }
+		const std::vector<std::shared_ptr<Vertex::IVertex>>& GetVertices() const { return m_Vertex; }
+		std::vector<std::shared_ptr<Vertex::IVertex>>& GetVertices() { return m_Vertex; }
 		
 		void CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name);	
 		const std::vector<std::pair<std::string, std::string>>& GetEdges() const { return m_Edge; }
@@ -27,7 +28,7 @@ namespace Graphs
 		void PrintEdgeData() const;
 
 	private:
-		std::vector<Layouts::FruchtermanReingoldVertex> m_Vertex;
+		std::vector<std::shared_ptr<Vertex::IVertex>> m_Vertex;
 		std::vector<std::pair<std::string, std::string>> m_Edge;
 	};
 }
