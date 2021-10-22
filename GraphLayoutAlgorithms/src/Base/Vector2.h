@@ -1,5 +1,5 @@
 #pragma once 
-#include <math.h>
+#include <cmath>
 /*
     Simple Vector2 class.
 */
@@ -20,7 +20,23 @@ public:
         m_x = x;
         m_y = y;
     }
-    
+
+	void Set(const Vector2& other) 
+	{
+		m_x = other.m_x;
+		m_y = other.m_y;
+	}
+
+    Vector2& operator=(const Vector2& other)
+    {
+        if (this == &other)
+            return *this;
+        m_x = other.m_x;
+        m_y = other.m_y;
+        return *this;
+    }
+
+
     float Magnitude() const 
     {
         return std::sqrt(MagnitudeSquare());
@@ -39,6 +55,16 @@ public:
     {
         return m_y;
     }
+
+    friend bool operator==(const Vector2& lhs, const Vector2& rhs)
+    {
+        return lhs.m_x == rhs.m_x && lhs.m_y == rhs.m_y;
+    }
+
+	friend bool operator!=(const Vector2& lhs, const Vector2& rhs)
+	{
+        return !(lhs == rhs);
+	}
 
     friend Vector2 operator-(const Vector2& lhs, const Vector2& rhs)
     {

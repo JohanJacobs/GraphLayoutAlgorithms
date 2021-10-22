@@ -26,18 +26,10 @@ namespace Layouts
             m_Pos.Set(x,y);
         }
 
-        const Vector2& GetDisplacement() const {return m_Disp;}
-
-        void SetDisplacement (float x, float y)
-        {
-            m_Disp.Set(x,y);
-        }
-
         const std::string& GetName() const {return m_Name;}
                 
     private:
         std::string m_Name;
         Vector2 m_Pos;
-        Vector2 m_Disp;
     };
 }

@@ -3,6 +3,7 @@
 #include <unordered_map>
 
 #include "FruchtermanReingoldVertex.h"
+#include "Graph/Graph.h"
 
 namespace Layouts
 {
@@ -30,28 +31,17 @@ namespace Layouts
 	class FruchtermanReingold
 	{
 	public:
-		void CreateVertex(const std::string& vertex_name);
-		void CreateVertex(const std::string& vertex_name, const Vector2& vertex_position);
-		void CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name);
-
-		const std::vector<FruchtermanReingoldVertex>& GetVertex() const;
-		const std::vector<std::pair<std::string,std::string>>& GetEdge() const;
-
 		void Step(uint32_t iterations = 50);
 
-		void PrintGraphData() const ;
-
-		FruchtermanReingold();
+		FruchtermanReingold(Graphs::Graph& graph);
 		~FruchtermanReingold();
-	private:
-		void PrintVetexData() const;
-		void PrintEdgeData() const;
 
-		FruchtermanReingoldVertex& GetVertexData(const std::string& vertex_name);
 	private:
-		std::vector<FruchtermanReingoldVertex> m_Vertex;
-		std::vector<std::pair<std::string, std::string>> m_Edge;
+		const FruchtermanReingoldVertex& GetVertexData(const std::string& vertex_name);
 
+
+	private:
+		Graphs::Graph& m_Graph;
 		float m_Width;
 		float m_Height;
 	};
