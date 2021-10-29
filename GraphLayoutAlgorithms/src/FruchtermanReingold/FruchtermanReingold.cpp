@@ -10,7 +10,7 @@
 
 namespace Layouts
 {
-	FruchtermanReingold::FruchtermanReingold(Graphs::IGraph& graph)
+	FruchtermanReingold::FruchtermanReingold(std::shared_ptr<Graphs::IGraph> graph)
 	:m_Width{3.0f}, m_Height{3.0f},m_Graph{graph}
 	{
 
@@ -25,9 +25,10 @@ namespace Layouts
 	{		
 		std::unordered_map<std::string, Vector2> displacement;
 
+		std::size_t graph_vertex_count = m_Graph->GetVertices().size();
 		float area = m_Width * m_Height;
-		float k = std::sqrt(area / m_Graph.GetVertices().size());
-		float t = 10.0f * m_Graph.GetVertices().size(); // temperature
+		float k = std::sqrt(area / graph_vertex_count);
+		float t = 10.0f * m_Graph->GetVertices().size(); // temperature
 		
 		float half_width = m_Width / 2.0f;
 		float half_height = m_Height / 2.0f;
@@ -35,11 +36,11 @@ namespace Layouts
 		for (uint32_t iteration=0; iteration < iterations; iteration++)
 		{
 			//{ calculate repulsive forces }
-			for (auto& vertex : m_Graph.GetVertices())
+			for (auto& vertex : m_Graph->GetVertices())
 			{
 				displacement[vertex->GetName()].Set(0.0f, 0.0f);
 	
-				for (auto& other_vertex : m_Graph.GetVertices())
+				for (auto& other_vertex : m_Graph->GetVertices())
 				{
 					if (other_vertex->GetName() == vertex->GetName())
 						continue;
@@ -59,7 +60,7 @@ namespace Layouts
 			}
 
 			//{ calculate attractive forces }
-			for ( const auto& [from_vertex_name, too_vertex_name] : m_Graph.GetEdges())
+			for ( const auto& [from_vertex_name, too_vertex_name] : m_Graph->GetEdges())
 			{
 				auto& from_vertex_data = GetVertexData(from_vertex_name);
 				auto& too_vertex_data = GetVertexData(too_vertex_name);
@@ -79,7 +80,7 @@ namespace Layouts
 			}
 
 			//{ limit maximum displacement to the temprature t and prevent from being ouside the frame }
-			for (auto& vertex : m_Graph.GetVertices())
+			for (auto& vertex : m_Graph->GetVertices())
 			{
 				auto displacement_normalized = Vector2::Normalize(displacement[vertex->GetName()]);
 				float displacement_magnitude = displacement[vertex->GetName()].Magnitude();
@@ -105,16 +106,16 @@ namespace Layouts
 		}		
 	}
 
-	void FruchtermanReingold::SetGraph(Graphs::IGraph& graph)
+	void FruchtermanReingold::SetGraph(std::shared_ptr<Graphs::IGraph> graph)
 	{
 		m_Graph = graph;
 	}
 
 	const std::shared_ptr<Vertex::IVertex>& FruchtermanReingold::GetVertexData(const std::string& vertex_name)
 	{
-		auto result = std::find_if(std::begin(m_Graph.GetVertices()),std::end(m_Graph.GetVertices()), [&](const std::shared_ptr<Vertex::IVertex>& v){ return v->GetName() == vertex_name;});
+		auto result = std::find_if(std::begin(m_Graph->GetVertices()),std::end(m_Graph->GetVertices()), [&](const std::shared_ptr<Vertex::IVertex>& v){ return v->GetName() == vertex_name;});
 
-		assert(result != std::end(m_Graph.GetVertices()));
+		assert(result != std::end(m_Graph->GetVertices()));
 
 		return *result; //de-reference the pointer.
 	}

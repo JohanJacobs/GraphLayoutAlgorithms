@@ -12,6 +12,9 @@ namespace Graphs
 	class IGraph
 	{
 	public:
+		std::shared_ptr<IGraph> static CreateGraph();
+		
+	public:
 		virtual void CreateVertex(const std::string& vertex_name) =0;
 		virtual void CreateVertex(const std::string& vertex_name, const Vector2& vertex_position )=0;
 		virtual const std::vector<std::shared_ptr<Vertex::IVertex>>& GetVertices() const = 0;

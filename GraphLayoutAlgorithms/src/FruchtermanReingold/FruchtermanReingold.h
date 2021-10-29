@@ -33,9 +33,9 @@ namespace Layouts
 	{
 	public:
 		void Step(uint32_t iterations = 50) override;
-		void SetGraph(Graphs::IGraph& graph) override;
+		void SetGraph(std::shared_ptr<Graphs::IGraph> graph) override;
 
-		FruchtermanReingold(Graphs::IGraph& graph);
+		FruchtermanReingold(std::shared_ptr<Graphs::IGraph> graph);
 		~FruchtermanReingold();
 
 	private:
@@ -43,7 +43,7 @@ namespace Layouts
 
 
 	private:
-		Graphs::IGraph& m_Graph;
+		std::shared_ptr<Graphs::IGraph> m_Graph;
 		float m_Width;
 		float m_Height;
 	};

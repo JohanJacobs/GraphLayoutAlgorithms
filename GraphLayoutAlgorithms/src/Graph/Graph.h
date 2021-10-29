@@ -22,6 +22,8 @@ namespace Graphs
 		
 
 		void PrintGraphData() const;
+		Graph() = default;
+		~Graph() = default;
 
 	private:	
 		void PrintVetexData() const;
