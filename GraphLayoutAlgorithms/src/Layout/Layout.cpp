@@ -1,5 +1,5 @@
 #include "Layout.h"
 
-namespace Graphs
+namespace Layouts
 {	
 }

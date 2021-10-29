@@ -1,7 +1,7 @@
 #pragma once
 #include <stdint.h>
 #include "Graph/IGraph.h"
-namespace Layout
+namespace Layouts
 {	
 	/*
 		Interface for graph layouts

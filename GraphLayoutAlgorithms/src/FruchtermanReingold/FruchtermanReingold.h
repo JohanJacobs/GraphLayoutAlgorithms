@@ -29,7 +29,7 @@ namespace Layouts
 		- Straight		
 	*/
 
-	class FruchtermanReingold : public Layout::ILayout
+	class FruchtermanReingold : public Layouts::ILayout
 	{
 	public:
 		void Step(uint32_t iterations = 50) override;
