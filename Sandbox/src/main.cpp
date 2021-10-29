@@ -3,17 +3,18 @@
 #include "FruchtermanReingold/FruchtermanReingold.h"
 #include "base/Vector2.h"
 #include "Graph/IGraph.h"
+#include "Vertex/IVertex.h"
 
 void testFruchtermanReingold()
 {
 	auto g =  Graphs::IGraph::CreateGraph();
-	g->CreateVertex("node1", Vector2(0.1f, 0.1f));
-	g->CreateVertex("node2", Vector2(0.5f, 0.5f));
-	g->CreateVertex("node3", Vector2(0.9f, 0.9f));
-	g->CreateVertex("node4", Vector2(0.5f, 0.1f));
-	g->CreateVertex("node5", Vector2(0.9f, 0.5f));
-	g->CreateVertex("node6", Vector2(0.2f, 0.5f));
-	g->CreateVertex("node7", Vector2(0.1f, 0.9f));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node1", Vector2(0.1f, 0.1f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node2", Vector2(0.5f, 0.5f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node3", Vector2(0.9f, 0.9f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node4", Vector2(0.5f, 0.1f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node5", Vector2(0.9f, 0.5f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node6", Vector2(0.2f, 0.5f)));
+	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node7", Vector2(0.1f, 0.9f)));
 
 	Layouts::FruchtermanReingold fr(g);
 

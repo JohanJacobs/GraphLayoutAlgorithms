@@ -7,19 +7,6 @@
 
 namespace Graphs
 {
-	
-	void Graph::CreateVertex(const std::string& vertex_name)
-	{
-
-		CreateVertex(vertex_name, Vector2(RandomNumbers::GetFloat(), RandomNumbers::GetFloat()));
-	}
-
-	void Graph::CreateVertex(const std::string& vertex_name, const Vector2& vertex_position)
-	{		
-		auto new_vertex = std::make_shared<Vertex::StandardVertex>(vertex_name, vertex_position);
-		m_Vertex.emplace_back(new_vertex);
-	}
-
 	void Graph::CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name)
 	{
 		m_Edge.push_back(std::make_pair(from_vertex_name, too_vertex_name));
@@ -29,6 +16,13 @@ namespace Graphs
 	{
 		PrintVetexData();
 		PrintEdgeData();
+	}
+
+
+
+	void Graph::AddVertex(std::shared_ptr<Vertex::IVertex> vertex)
+	{
+		m_Vertex.emplace_back(vertex);
 	}
 
 	void Graph::PrintVetexData() const

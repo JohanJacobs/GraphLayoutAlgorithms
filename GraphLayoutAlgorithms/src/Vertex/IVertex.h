@@ -1,10 +1,18 @@
 #pragma once
 #include <string>
+#include <memory>
+
 #include "Base/Vector2.h"
 namespace Vertex
 {
+	enum class VertexType{
+		StandardVertex = 0
+	};
 	class IVertex
 	{
+	public:
+		std::shared_ptr<Vertex::IVertex> static CreateVertex(VertexType vertex_type,const std::string& vertex_name, const Vector2& position = Vector2(0.0f, 0.0f));
+
 	public:
 		virtual const Vector2& GetPosition() const = 0;
 		virtual void SetPosition(float x, float y) = 0;
