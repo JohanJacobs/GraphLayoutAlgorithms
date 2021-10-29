@@ -7,6 +7,12 @@
 
 namespace Graphs
 {
+	Graph::Graph(const std::string graph_name /*= "graph"*/)
+		:m_Name(graph_name)
+	{
+
+	}
+
 	void Graph::CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name)
 	{
 		m_Edge.push_back(std::make_pair(from_vertex_name, too_vertex_name));
@@ -17,8 +23,6 @@ namespace Graphs
 		PrintVetexData();
 		PrintEdgeData();
 	}
-
-
 
 	void Graph::AddVertex(std::shared_ptr<Vertex::IVertex> vertex)
 	{

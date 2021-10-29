@@ -13,7 +13,6 @@ namespace Graphs
 	{
 	public:
 		std::shared_ptr<IGraph> static CreateGraph();
-		
 	public:
 
 		virtual void AddVertex(std::shared_ptr<Vertex::IVertex> vertex) = 0;		
