@@ -12,7 +12,7 @@ namespace Vertex
     class StandardVertex:public Vertex::IVertex
     {
     public:
-        StandardVertex(const std::string& name,const Vector2& position = Vector2(0.5f,0.5f))
+        StandardVertex(const std::string& name = "vertex", const Vector2& position = Vector2(0.0f, 0.0f))
         :m_Name{name},m_Pos(position)
         {
 

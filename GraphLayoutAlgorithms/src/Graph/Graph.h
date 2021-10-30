@@ -22,9 +22,17 @@ namespace Graphs
 		const std::vector<std::pair<std::string, std::string>>& GetEdges() const { return m_Edge; }
 		
 		void PrintGraphData() const;
-		std::string Name() const { return m_Name; }
-		Graph(const std::string graph_name = "graph");
+
+		const std::string& Name() const override;
+		void SetName(const std::string& graph_name) override;
+
+		Graph(const std::string& graph_name = "no name");		
 		~Graph() = default;
+
+
+
+
+		size_t VertexCount() const override;
 
 	private:
 		void PrintVetexData() const;

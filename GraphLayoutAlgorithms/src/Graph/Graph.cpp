@@ -7,10 +7,20 @@
 
 namespace Graphs
 {
-	Graph::Graph(const std::string graph_name /*= "graph"*/)
+	Graph::Graph(const std::string& graph_name /*= "graph"*/)
 		:m_Name(graph_name)
 	{
 
+	}
+
+	size_t Graph::VertexCount() const
+	{
+		return m_Vertex.size();
+	}
+
+	void Graph::SetName(const std::string& graph_name)
+	{
+		m_Name = graph_name;
 	}
 
 	void Graph::CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name)
@@ -22,6 +32,11 @@ namespace Graphs
 	{
 		PrintVetexData();
 		PrintEdgeData();
+	}
+
+	const std::string& Graph::Name() const
+	{
+		return m_Name;
 	}
 
 	void Graph::AddVertex(std::shared_ptr<Vertex::IVertex> vertex)
