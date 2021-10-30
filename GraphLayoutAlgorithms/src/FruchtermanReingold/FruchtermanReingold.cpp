@@ -28,14 +28,14 @@ namespace Layouts
 		std::size_t graph_vertex_count = m_Graph->GetVertices().size();
 		float area = m_Width * m_Height;
 		float k = std::sqrt(area / graph_vertex_count);
-		float t = 10.0f * m_Graph->GetVertices().size(); // temperature
+		float t = 10.0f * m_Graph->GetVertices().size(); // set initial temperature
 		
 		float half_width = m_Width / 2.0f;
 		float half_height = m_Height / 2.0f;
 
 		for (uint32_t iteration=0; iteration < iterations; iteration++)
 		{
-			//{ calculate repulsive forces }
+			//calculate repulsive forces 
 			for (auto& vertex : m_Graph->GetVertices())
 			{
 				displacement[vertex->GetName()].Set(0.0f, 0.0f);
@@ -45,21 +45,19 @@ namespace Layouts
 					if (other_vertex->GetName() == vertex->GetName())
 						continue;
 					
-					// Vector between the two positions of the two vertices 
+					// Vector between the two vertices 
 					auto distance_vector = vertex->GetPosition() - other_vertex->GetPosition();
 					float distance_vector_magnitude = distance_vector.Magnitude();
 					auto distance_normalized = Vector2::Normalize(distance_vector);
-
-					//v.disp = v.disp + (delta / |delta|)*Fr(|delta|) { |delta| is magnitude of the vector }					
-
+					
 					float Fr = ((k*k) / ((distance_vector_magnitude == 0.0f)?1.0f:distance_vector_magnitude));
 
 					auto new_displacement = displacement[vertex->GetName()] + distance_normalized * Fr;
-					displacement[vertex->GetName()] = new_displacement; //displacement[vertex.GetName()].set(new_displacement);
+					displacement[vertex->GetName()] = new_displacement; 
 				}
 			}
 
-			//{ calculate attractive forces }
+			// calculate attractive forces 
 			for ( const auto& [from_vertex_name, too_vertex_name] : m_Graph->GetEdges())
 			{
 				auto& from_vertex_data = GetVertexData(from_vertex_name);
@@ -79,7 +77,7 @@ namespace Layouts
 				displacement[too_vertex_name].Set(too_vertex_new_displacement.x(),too_vertex_new_displacement.y());
 			}
 
-			//{ limit maximum displacement to the temprature t and prevent from being ouside the frame }
+			// limit maximum displacement to the temperature t and prevent from being outside the frame 
 			for (auto& vertex : m_Graph->GetVertices())
 			{
 				auto displacement_normalized = Vector2::Normalize(displacement[vertex->GetName()]);
@@ -94,7 +92,7 @@ namespace Layouts
 				
 			}
 
-			//{ reduce the temprature }
+			//reduce the temperature
 			if (t > 0.01f)
 			{
 				t = t * 0.90f;

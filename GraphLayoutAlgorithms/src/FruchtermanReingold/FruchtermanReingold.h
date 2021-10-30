@@ -4,7 +4,7 @@
 
 #include "Vertex/StandardVertex.h"
 #include "Graph/IGraph.h"
-#include "Layout/Layout.h"
+#include "Layout/ILayout.h"
 
 namespace Layouts
 {
