@@ -71,10 +71,10 @@ namespace Layouts
 				auto attractive_force = distnace_vector_normalized * fa;
 
 				auto from_vertex_new_displacement = displacement[from_vertex_name] - attractive_force;
-				displacement[from_vertex_name].Set(from_vertex_new_displacement.x(),from_vertex_new_displacement.y());
+				displacement[from_vertex_name] = from_vertex_new_displacement;
 
 				auto too_vertex_new_displacement = displacement[too_vertex_name] + attractive_force;
-				displacement[too_vertex_name].Set(too_vertex_new_displacement.x(),too_vertex_new_displacement.y());
+				displacement[too_vertex_name] = too_vertex_new_displacement;
 			}
 
 			// limit maximum displacement to the temperature t and prevent from being outside the frame 
@@ -102,11 +102,6 @@ namespace Layouts
 				t = 0.01f;
 			}
 		}		
-	}
-
-	void FruchtermanReingold::SetGraph(std::shared_ptr<Graphs::IGraph> graph)
-	{
-		m_Graph = graph;
 	}
 
 	const std::shared_ptr<Vertex::IVertex>& FruchtermanReingold::GetVertexData(const std::string& vertex_name)

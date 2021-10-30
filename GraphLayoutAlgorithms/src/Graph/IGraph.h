@@ -6,10 +6,6 @@
 
 namespace Graphs
 {
-	enum class GraphType
-	{
-		UndirectedGraph=0
-	};
 	/*
 		Interface for graph data.
 	*/
@@ -17,7 +13,7 @@ namespace Graphs
 	{
 	public:
 
-		std::shared_ptr<IGraph> static CreateGraph(GraphType graph_type);
+		std::shared_ptr<IGraph> static CreateGraph();
 
 	public:
 

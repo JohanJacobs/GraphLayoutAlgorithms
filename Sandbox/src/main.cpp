@@ -2,22 +2,29 @@
 
 #include "GraphLayoutAlgorithms.h"
 
+
+
 int main()
 {
 	std::cout << "Hello, learning graph layout algorithms!\n";
 	
-	auto g = Graphs::IGraph::CreateGraph(Graphs::GraphType::UndirectedGraph);
+	auto g = GLA::Factory::CreateGraph();
 
 	// add vertices 
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node1", Vector2(0.1f, 0.1f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node2", Vector2(0.5f, 0.5f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node3", Vector2(0.9f, 0.9f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node4", Vector2(0.5f, 0.1f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node5", Vector2(0.9f, 0.5f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node6", Vector2(0.2f, 0.5f)));
-	g->AddVertex(Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "node7", Vector2(0.1f, 0.9f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node1", Vector2(0.1f, 0.1f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node2", Vector2(0.5f, 0.5f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node3", Vector2(0.9f, 0.9f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node4", Vector2(0.5f, 0.1f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node5", Vector2(0.9f, 0.5f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node6", Vector2(0.2f, 0.5f)));
+	g->AddVertex(GLA::Factory::CreateVertex("node7", Vector2(0.1f, 0.9f)));
 
-	//add endges
+	for (const auto& vertex : g->GetVertices())
+	{
+		std::cout << vertex->GetName() << ": " << vertex->GetPosition().x() << "/" << vertex->GetPosition().y() << "\n";
+	}
+
+	//add edges
 	g->CreateEdge("node1", "node2");
 	g->CreateEdge("node1", "node4");
 	g->CreateEdge("node2", "node4");
@@ -31,5 +38,10 @@ int main()
 	Layouts::FruchtermanReingold fg(g);
 	fg.Step(50);
 
+	std::cout << "\n\nupdated positions\n";
+	for (const auto& vertex : g->GetVertices())
+	{
+		std::cout << vertex->GetName() << ": " << vertex->GetPosition().x() << "/" << vertex->GetPosition().y() << "\n";
+	}
 	return 0;
 }

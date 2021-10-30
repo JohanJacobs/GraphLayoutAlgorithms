@@ -8,8 +8,7 @@ namespace Layouts
 	*/
 	class ILayout
 	{
-	public:
-		virtual void SetGraph(std::shared_ptr<Graphs::IGraph> graph) = 0;
+	public:		
 		virtual void Step(uint32_t iterations = 50) = 0;						
 		virtual ~ILayout()
 		{	}

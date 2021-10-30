@@ -4,7 +4,7 @@
 
 namespace Graphs
 {
-	std::shared_ptr<Graphs::IGraph> IGraph::CreateGraph(GraphType graph_type)
+	std::shared_ptr<Graphs::IGraph> IGraph::CreateGraph()
 	{
 		return std::make_shared<Graph>();
 	}
