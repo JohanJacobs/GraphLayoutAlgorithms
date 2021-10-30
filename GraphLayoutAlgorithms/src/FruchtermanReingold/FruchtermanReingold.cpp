@@ -11,7 +11,7 @@
 namespace Layouts
 {
 	FruchtermanReingold::FruchtermanReingold(std::shared_ptr<Graphs::IGraph> graph)
-	:m_Width{3.0f}, m_Height{3.0f},m_Graph{graph}
+	:m_Width{1.0f}, m_Height{1.0f},m_Graph{graph}
 	{
 
 	}
@@ -48,12 +48,13 @@ namespace Layouts
 					Vector2 from_vertex_position = vertex->GetPosition();
 					Vector2 too_vertex_position = other_vertex->GetPosition();
 
-					// special case, 2 vertices have the same position, perturb the vector with a small amount to push vertecis away from each other
+					// special case, 2 vertices have the same position, perturb the vector with a small amount to push vertices away from each other
 					if ( from_vertex_position == too_vertex_position)
 					{						
 						Vector2 small_random_vector = RandomNumbers::GetVector2();
 						from_vertex_position += small_random_vector;
 					}
+
 					auto distance_vector = from_vertex_position - too_vertex_position;
 					float distance_vector_magnitude = distance_vector.Magnitude();
 					
