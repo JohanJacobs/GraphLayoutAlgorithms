@@ -2,12 +2,16 @@
 class RandomNumbers
 {
     public:
-        static float GetFloat()
+        static float GetFloat(float median = 0.0f, float stdev = 0.0001f)
         {
             std::random_device rd{};
             std::mt19937 gen{rd()};
-            std::normal_distribution<> d{0.5f,0.1f};
+            std::normal_distribution<> d{ median, stdev };
             return float(d(gen));
+        }
+        static Vector2 GetVector2(float median = 0.0f, float stdev = 0.0001f)
+        {
+            return Vector2(GetFloat(median, stdev), GetFloat(median, stdev));
         }
     private:        
 };

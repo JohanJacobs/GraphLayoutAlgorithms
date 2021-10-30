@@ -45,9 +45,18 @@ namespace Layouts
 					if (other_vertex->GetName() == vertex->GetName())
 						continue;
 					
-					// Vector between the two vertices 
-					auto distance_vector = vertex->GetPosition() - other_vertex->GetPosition();
+					Vector2 from_vertex_position = vertex->GetPosition();
+					Vector2 too_vertex_position = other_vertex->GetPosition();
+
+					// special case, 2 vertices have the same position, perturb the vector with a small amount to push vertecis away from each other
+					if ( from_vertex_position == too_vertex_position)
+					{						
+						Vector2 small_random_vector = RandomNumbers::GetVector2();
+						from_vertex_position += small_random_vector;
+					}
+					auto distance_vector = from_vertex_position - too_vertex_position;
 					float distance_vector_magnitude = distance_vector.Magnitude();
+					
 					auto distance_normalized = Vector2::Normalize(distance_vector);
 					
 					float Fr = ((k*k) / ((distance_vector_magnitude == 0.0f)?1.0f:distance_vector_magnitude));

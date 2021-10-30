@@ -76,6 +76,13 @@ public:
         return Vector2(lhs.m_x + rhs.m_x, lhs.m_y + rhs.m_y);
     }    
 
+    Vector2& operator+=(const Vector2& rhs)
+    {
+        this->m_x += rhs.m_x;
+        this->m_y += rhs.m_y;
+        return *this;
+    }
+
     friend Vector2 operator*(const Vector2& lhs, float rhs)  
     {
         return Vector2(lhs.m_x * rhs, lhs.m_y * rhs);
