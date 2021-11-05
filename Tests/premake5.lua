@@ -2,9 +2,9 @@ project "Tests"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"
-    staticruntime "off"
+    staticruntime "on"
 
-    targetdir(TargetDir)
+    targetdir(TargetDirectory)
     objdir(ObjectDirectory)
 
     files
@@ -24,7 +24,7 @@ project "Tests"
     links 
     {
         "GraphLayoutALgorithms",
-        "gtest_main"
+        "google_test"
     }
 
     filter "configurations:Debug"

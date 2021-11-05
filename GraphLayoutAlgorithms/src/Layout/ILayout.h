@@ -8,7 +8,7 @@ namespace Layouts
 	*/
 	class ILayout
 	{
-	public:		
+	public:
 		virtual void Step(uint32_t iterations = 50) = 0;						
 		virtual ~ILayout()
 		{	}

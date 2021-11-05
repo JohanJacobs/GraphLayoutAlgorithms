@@ -23,6 +23,7 @@ namespace Graphs
 		virtual size_t VertexCount() const = 0;
 
 		virtual void CreateEdge(const std::string& from_vertex_name, const std::string& too_vertex_name)=0;
+
 		virtual const std::vector<std::pair<std::string, std::string>>& GetEdges() const = 0;
 
 		virtual void PrintGraphData() const = 0;

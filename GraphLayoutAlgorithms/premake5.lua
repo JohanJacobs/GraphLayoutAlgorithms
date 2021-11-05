@@ -2,6 +2,7 @@ project "GraphLayoutAlgorithms"
     kind "StaticLib"
     language "C++"
     cppdialect "C++17"
+	staticruntime "on"
 
     targetdir (TargetDirectory)
     objdir(ObjectDirectory)

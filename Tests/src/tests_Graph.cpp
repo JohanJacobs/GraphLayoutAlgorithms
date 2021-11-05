@@ -11,8 +11,7 @@ struct GraphTest : testing::Test
 
 	GraphTest()
 	{
-		graph = Graphs::IGraph::CreateGraph(Graphs::GraphType::UndirectedGraph);
-
+		graph = Graphs::IGraph::CreateGraph();
 	}
 
 	~GraphTest()
@@ -32,8 +31,8 @@ TEST_F(GraphTest, graph_name_tests)
 
 TEST_F(GraphTest, graph_vertex_tests)
 {
-	auto v1 =  Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex,"vertex1");
-	auto v2 = Vertex::IVertex::CreateVertex(Vertex::VertexType::StandardVertex, "vertex2");
+	auto v1 =  Vertex::IVertex::CreateVertex("vertex1");
+	auto v2 = Vertex::IVertex::CreateVertex("vertex2");
 
 	graph->AddVertex(v1);
 	graph->AddVertex(v2);
