@@ -1,6 +1,7 @@
 #include "Layout/ILayout.h"
 #include "Graph/IGraph.h"
 #include "Vertex/IVertex.h"
+#include "Edge/IEdge.h"
 
 // layouts
 #include "FruchtermanReingold/FruchtermanReingold.h"

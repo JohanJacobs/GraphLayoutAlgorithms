@@ -34,9 +34,7 @@ int main()
 	g->CreateEdge("node6", "node7");
 	g->CreateEdge("node5", "node7");
 	g->CreateEdge("node5", "node6");
-
-	g->CreateEdge("node1", "node2");
-
+	
 	// create layout
 	Layouts::FruchtermanReingold fg(g);
 	fg.Step(50);
