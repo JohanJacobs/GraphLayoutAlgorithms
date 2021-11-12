@@ -27,10 +27,11 @@ TEST_F(EdgeTest, Edge_create)
 	EXPECT_STRCASEEQ(v2_name.c_str(), edge->Too()->GetName().c_str());
 }
 
-TEST_F(EdgeTest, Edge_change_too_vertex)
+TEST_F(EdgeTest, Edge_change_from_too_vertex)
 {
 	auto edge = Edge::IEdge::CreateEdge(v1, v2);
 	edge->Set(v4, v3);
 	EXPECT_STRCASEEQ(v4_name.c_str(), edge->From()->GetName().c_str());
 	EXPECT_STRCASEEQ(v3_name.c_str(), edge->Too()->GetName().c_str());
 }
+

@@ -1,7 +1,6 @@
 #include "gtest/gtest.h"
 
 #include "graph/IGraph.h"
-
 #include <string>
 
 
@@ -26,6 +25,7 @@ TEST_F(GraphTest, graph_name_tests)
 	
 	std::string graph_name{ "Test graph." };
 	graph->SetName(graph_name);
+
 	EXPECT_STRCASEEQ(graph_name.c_str(), graph->Name().c_str());
 }
 
@@ -41,6 +41,19 @@ TEST_F(GraphTest, graph_vertex_tests)
 }
 
 
+TEST_F(GraphTest, AddEdge)
+{
+	auto v1 = Vertex::IVertex::CreateVertex("vertex1");
+	auto v2 = Vertex::IVertex::CreateVertex("vertex2");
 
+	graph->AddVertex(v1);
+	graph->AddVertex(v2);
+	graph->AddEdge(Edge::IEdge::CreateEdge(v1, v2));
+	EXPECT_EQ(1, graph->EdgeCount());	
+}
 
-
+TEST_F(GraphTest, CreateEdge)
+{
+	graph->CreateEdge("node3","node4");
+	EXPECT_EQ(1, graph->EdgeCount());
+}

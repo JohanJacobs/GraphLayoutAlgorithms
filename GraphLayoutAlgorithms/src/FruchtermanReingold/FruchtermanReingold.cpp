@@ -94,10 +94,10 @@ namespace Layouts
 
 	void FruchtermanReingold::CalculateAttractiveForces(float k)
 	{
-		for (const auto& [from_vertex_name, too_vertex_name] : m_Graph->GetEdges())
+		for (auto edge : m_Graph->GetEdges())
 		{
-			auto& from_vertex_data = GetVertexData(from_vertex_name);
-			auto& too_vertex_data = GetVertexData(too_vertex_name);
+			auto from_vertex_data = edge->From();
+			auto too_vertex_data = edge->Too();
 
 			auto distance_vector = from_vertex_data->GetPosition() - too_vertex_data->GetPosition();
 			auto distance_vector_magnitude = distance_vector.Magnitude();
@@ -106,11 +106,11 @@ namespace Layouts
 			auto fa = (distance_vector_magnitude * distance_vector_magnitude) / k;
 			auto attractive_force = distnace_vector_normalized * fa;
 
-			auto from_vertex_new_displacement = m_Displacement[from_vertex_name] - attractive_force;
-			m_Displacement[from_vertex_name] = from_vertex_new_displacement;
+			auto from_vertex_new_displacement = m_Displacement[from_vertex_data->GetName()] - attractive_force;
+			m_Displacement[from_vertex_data->GetName()] = from_vertex_new_displacement;
 
-			auto too_vertex_new_displacement = m_Displacement[too_vertex_name] + attractive_force;
-			m_Displacement[too_vertex_name] = too_vertex_new_displacement;
+			auto too_vertex_new_displacement = m_Displacement[too_vertex_data->GetName()] + attractive_force;
+			m_Displacement[too_vertex_data->GetName()] = too_vertex_new_displacement;
 		}
 	}
 
