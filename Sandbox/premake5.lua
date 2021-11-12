@@ -2,7 +2,7 @@ project "Sandbox"
     kind "ConsoleApp"
     language "C++"
     cppdialect "C++17"
-    staticruntime "off"
+    staticruntime "on"
 
     targetdir(TargetDirectory)
     objdir(ObjectDirectory)
