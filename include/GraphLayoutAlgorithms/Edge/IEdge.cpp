@@ -1,5 +1,5 @@
 #include "IEdge.h"
-#include "Edge/Edges/UndirectedEdge.h"
+#include "GraphLayoutAlgorithms/Edge/Edges/UndirectedEdge.h"
 
 namespace Edge
 {

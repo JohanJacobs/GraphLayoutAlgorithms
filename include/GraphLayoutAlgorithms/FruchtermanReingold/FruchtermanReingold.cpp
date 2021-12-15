@@ -5,8 +5,8 @@
 #include <cassert>
 
 #include "FruchtermanReingold.h"
-#include "base/Vector2.h"
-#include "base/RandomValues.h"
+#include "GraphLayoutAlgorithms/base/Vector2.h"
+#include "GraphLayoutAlgorithms/base/RandomValues.h"
 
 namespace Layouts
 {

@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "Base/Vector2.h"
+#include "GraphLayoutAlgorithms/Base/Vector2.h"
 Vector2 CreateVectorTest(float x, float y)
 {
 	Vector2 g(x, y);

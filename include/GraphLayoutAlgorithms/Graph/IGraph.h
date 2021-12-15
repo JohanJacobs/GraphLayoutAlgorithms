@@ -2,8 +2,8 @@
 #include <vector>
 #include <string>
 #include <memory>
-#include "Vertex/IVertex.h"
-#include "Edge/IEdge.h"
+#include "GraphLayoutAlgorithms/Vertex/IVertex.h"
+#include "GraphLayoutAlgorithms/Edge/IEdge.h"
 
 namespace Graphs
 {

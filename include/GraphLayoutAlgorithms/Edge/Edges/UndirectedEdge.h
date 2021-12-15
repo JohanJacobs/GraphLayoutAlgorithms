@@ -1,5 +1,5 @@
 #pragma once
-#include "Edge/IEdge.h"
+#include "GraphLayoutAlgorithms/Edge/IEdge.h"
 namespace Edge
 {
 	class UndirectedEdge : public IEdge

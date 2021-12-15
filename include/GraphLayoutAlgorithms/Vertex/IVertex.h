@@ -2,7 +2,7 @@
 #include <string>
 #include <memory>
 
-#include "Base/Vector2.h"
+#include "GraphLayoutAlgorithms/Base/Vector2.h"
 namespace Vertex
 {
 	class IVertex

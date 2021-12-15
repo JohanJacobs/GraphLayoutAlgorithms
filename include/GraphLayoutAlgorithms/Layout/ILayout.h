@@ -1,6 +1,6 @@
 #pragma once
 #include <stdint.h>
-#include "Graph/IGraph.h"
+#include "GraphLayoutAlgorithms/Graph/IGraph.h"
 namespace Layouts
 {	
 	/*

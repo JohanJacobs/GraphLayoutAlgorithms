@@ -2,8 +2,8 @@
 #include <algorithm>
 
 #include "Graph.h"
-#include "base/RandomValues.h"
-#include "Vertex/StandardVertex.h"
+#include "GraphLayoutAlgorithms/base/RandomValues.h"
+#include "GraphLayoutAlgorithms/Vertex/StandardVertex.h"
 
 namespace Graphs
 {	

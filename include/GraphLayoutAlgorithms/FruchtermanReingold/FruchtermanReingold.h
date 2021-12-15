@@ -2,9 +2,9 @@
 #include <vector>
 #include <unordered_map>
 
-#include "Vertex/StandardVertex.h"
-#include "Graph/IGraph.h"
-#include "Layout/ILayout.h"
+#include "GraphLayoutAlgorithms/Vertex/StandardVertex.h"
+#include "GraphLayoutAlgorithms/Graph/IGraph.h"
+#include "GraphLayoutAlgorithms/Layout/ILayout.h"
 
 namespace Layouts
 {

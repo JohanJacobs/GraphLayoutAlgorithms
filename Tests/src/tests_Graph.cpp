@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "graph/IGraph.h"
+#include "GraphLayoutAlgorithms/graph/IGraph.h"
 #include <string>
 
 

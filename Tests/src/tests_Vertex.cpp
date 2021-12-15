@@ -1,6 +1,6 @@
 #include "gtest/gtest.h"
 
-#include "Vertex/IVertex.h"
+#include "GraphLayoutAlgorithms/Vertex/IVertex.h"
 
 struct VertexTest : testing::Test
 {

@@ -1,8 +1,6 @@
 #include <iostream>
 
-#include "GraphLayoutAlgorithms.h"
-
-
+#include "GraphLayoutAlgorithms/GraphLayoutAlgorithms.h"
 
 int main()
 {

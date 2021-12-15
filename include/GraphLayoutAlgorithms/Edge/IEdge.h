@@ -1,5 +1,5 @@
 #pragma once
-#include "vertex/IVertex.h"
+#include "GraphLayoutAlgorithms/vertex/IVertex.h"
 namespace Edge{
 	class IEdge
 	{

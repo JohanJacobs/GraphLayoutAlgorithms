@@ -10,7 +10,9 @@ project "Sandbox"
     files 
     {
         "src/**.h",
-        "src/**.cpp"
+        "src/**.cpp",
+		"%{IncludeDir.GraphLayoutAlgorithms}/**.cpp",
+		"%{IncludeDir.GraphLayoutAlgorithms}/**.hpp"
     }
 
     includedirs
@@ -18,10 +20,7 @@ project "Sandbox"
         "src",
         "%{IncludeDir.GraphLayoutAlgorithms}"
     }
-    links
-    {
-        "GraphLayoutAlgorithms"
-    }
+
     filter "configurations:Debug"
         defines "DEBUG"
         runtime "Debug"

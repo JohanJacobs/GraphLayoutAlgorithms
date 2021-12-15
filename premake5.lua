@@ -17,10 +17,9 @@ workspace "GraphLayoutAlgorithms"
     }
 
     IncludeDir = {}
-    IncludeDir["GraphLayoutAlgorithms"] = "%{wks.location}/GraphLayoutAlgorithms/src"
+    IncludeDir["GraphLayoutAlgorithms"] = "%{wks.location}/include/"
     IncludeDir["Gtest"] = "%{wks.location}/Tests/Vendor/googletest/googletest"
     IncludeDir["GtestInclude"] = "%{wks.location}/Tests/Vendor/googletest/googletest/include"
 
     include "Sandbox"
-    include "Tests"
-    include "GraphLayoutAlgorithms"
+    include "Tests"   

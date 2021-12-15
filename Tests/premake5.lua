@@ -10,7 +10,9 @@ project "Tests"
     files
     {
         "src/**.h",
-        "src/**.cpp"
+        "src/**.cpp",
+		"%{IncludeDir.GraphLayoutAlgorithms}/**.cpp",
+		"%{IncludeDir.GraphLayoutAlgorithms}/**.hpp"
     }
 
     includedirs
@@ -22,8 +24,7 @@ project "Tests"
     }
 
     links 
-    {
-        "GraphLayoutALgorithms",
+    {      
         "google_test"
     }
 

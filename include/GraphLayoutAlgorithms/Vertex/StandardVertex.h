@@ -1,6 +1,6 @@
 #pragma once 
-#include "Vertex/IVertex.h"
-#include "base/Vector2.h"
+#include "GraphLayoutAlgorithms/Vertex/IVertex.h"
+#include "GraphLayoutAlgorithms/base/Vector2.h"
 
 namespace Vertex
 {
